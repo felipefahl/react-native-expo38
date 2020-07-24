@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useCallback } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import * as Updates from 'expo-updates';
 
 export default function App() {
 
-  useEffect(() => {
-    async function updateApp() {
+  const checkUpdate = useCallback(async () => {
+     {
       const { isAvailable, } = await Updates.checkForUpdateAsync()
 
       if (isAvailable) {
@@ -15,12 +15,17 @@ export default function App() {
         await Updates.reloadAsync()
       }
     }
-    updateApp();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Updated!</Text>
+      <Button
+        onPress={checkUpdate}
+        title="Update"
+        color="#841584"
+        accessibilityLabel="Update app button"
+      />    
       <StatusBar style="auto" />
     </View>
   );
