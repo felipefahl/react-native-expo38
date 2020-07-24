@@ -1,0 +1,12 @@
+{
+  "name": "youtube-bare-expo",
+  "displayName": "youtube-bare-expo",
+  "expo": {
+    "name": "youtube-bare-expo",
+    "slug": "youtube-bare-expo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
